@@ -1,20 +1,18 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
 }
 
 android {
+    namespace 'com.cesc.core'
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.cesc"
         minSdk 21
         targetSdk 32
-        versionCode 1
-        versionName "1.0"
-        multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -35,11 +33,10 @@ android {
 dependencies {
     implementation(libs.ktx.core)
     implementation(libs.appcompat)
-    implementation(libs.mutlidex)
-    implementation(libs.material)
-    implementation(libs.constraintlayout)
+    implementation(libs.koin.android)
 
-    implementation(project(":core"))
+    implementation(project(":core-data"))
+    implementation(project(":core-domain"))
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

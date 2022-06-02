@@ -10,7 +10,16 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven { url "https://jitpack.io" }
     }
 }
+
+enableFeaturePreview("VERSION_CATALOGS")
+
 rootProject.name = "WanAndroidApp"
 include ':app'
+include ':core'
+include ':core-data'
+include ':core-model'
+include ':core-domain'
+include ':feature-main-page'
