@@ -41,6 +41,11 @@ dependencies {
     implementation(libs.appcompat)
     implementation(libs.koin.android)
     implementation(libs.koin.annotation)
+    implementation(libs.koin.annotation)
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.converter.gson)
+    implementation(libs.gson)
+    implementation(libs.okhttp)
     ksp(libs.koin.ksp.compiler)
 
     api(project(":core-model"))

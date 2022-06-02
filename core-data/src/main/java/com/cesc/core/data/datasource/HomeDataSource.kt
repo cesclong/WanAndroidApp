@@ -9,7 +9,7 @@ interface HomeDataSource {
 }
 
 @Singleton
-internal class HomeDataSourceImpl(
+internal class HomeRemoteDataSourceImpl(
     private val network: WanAndroidNetwork
 ) : HomeDataSource {
     override suspend fun getBanner(): List<HomeBanner> = network.getHomeBanner()
