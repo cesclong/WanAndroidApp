@@ -1,5 +1,6 @@
 package com.cesc.core.data.network
 
+import com.cesc.core.model.Article
 import com.cesc.core.model.HomeBanner
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
@@ -11,6 +12,9 @@ import retrofit2.http.GET
 internal interface WanAndroidApiService {
     @GET("banner/json")
     suspend fun getHomeBanner(): NetworkResponse<List<HomeBanner>>
+
+    @GET("article/top/json")
+    suspend fun getHomeTopArticles(): NetworkResponse<List<Article>>
 
 }
 
@@ -40,5 +44,9 @@ class RetrofitNetwork : WanAndroidNetwork {
 
     override suspend fun getHomeBanner(): List<HomeBanner> {
         return apiService.getHomeBanner().data
+    }
+
+    override suspend fun getHomeTopArticles(): List<Article> {
+        return apiService.getHomeTopArticles().data
     }
 }

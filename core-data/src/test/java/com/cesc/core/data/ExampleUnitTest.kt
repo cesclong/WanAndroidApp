@@ -1,6 +1,7 @@
 package com.cesc.core.data
 
 import com.cesc.core.data.repository.HomeBannerRepository
+import com.cesc.core.data.repository.HomeTopArticleRepository
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.junit.Test
@@ -30,6 +31,14 @@ class ExampleUnitTest : KoinTest {
     fun `fetch banner data`() = runTest {
         val bannerRepository = get<HomeBannerRepository>()
         val result = bannerRepository()
+        println(result)
+        assertEquals(false, result.isEmpty())
+    }
+
+    @Test
+    fun `fetch home top articles`() = runTest {
+        val topArticles = get<HomeTopArticleRepository>()
+        val result = topArticles()
         println(result)
         assertEquals(false, result.isEmpty())
     }
