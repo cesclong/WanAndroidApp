@@ -21,4 +21,7 @@
 
 * Glide
 
+## 1.4 DI 
+* koin
+
   

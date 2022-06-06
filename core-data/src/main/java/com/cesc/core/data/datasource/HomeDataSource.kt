@@ -8,6 +8,7 @@ import org.koin.core.annotation.Singleton
 interface HomeDataSource {
     suspend fun getBanner(): List<HomeBanner>
     suspend fun getTopArticles(): List<Article>
+    suspend fun getArticles(pageIndex: Int = 0): List<Article>
 }
 
 @Singleton
@@ -16,4 +17,7 @@ internal class HomeRemoteDataSourceImpl(
 ) : HomeDataSource {
     override suspend fun getBanner(): List<HomeBanner> = network.getHomeBanner()
     override suspend fun getTopArticles(): List<Article> = network.getHomeTopArticles()
+    override suspend fun getArticles(pageIndex: Int): List<Article> =
+        network.getHomeArticles(pageIndex)
 }
+

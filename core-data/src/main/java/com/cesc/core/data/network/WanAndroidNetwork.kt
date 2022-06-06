@@ -7,4 +7,6 @@ interface WanAndroidNetwork {
     suspend fun getHomeBanner(): List<HomeBanner>
 
     suspend fun getHomeTopArticles(): List<Article>
+
+    suspend fun getHomeArticles(pageIndex: Int): List<Article>
 }
