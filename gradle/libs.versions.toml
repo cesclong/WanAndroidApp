@@ -36,4 +36,5 @@ xbanner = "com.github.xiaohaibin:XBanner:androidx_v1.2.6"
 fab = "com.github.clans:fab:1.6.4"
 swiperefreshlayout = "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
 statusview = "com.classic.common:multiple-status-view:1.7"
+mmkv = "com.tencent:mmkv:1.2.13"
 

@@ -38,6 +38,7 @@ dependencies {
     implementation(libs.mutlidex)
     implementation(libs.material)
     implementation(libs.constraintlayout)
+    implementation(libs.mmkv)
 
     implementation(project(":core"))
 
