@@ -35,6 +35,27 @@ class ReceivedCookieInterceptor(
 
         return response
     }
+}
+
+
+@Singleton
+@Named("headers")
+class HeadersInterceptor(
+    @Named("mmkv") private val localStore: PreferenceStore
+) : RetrofitInterceptor {
+    override fun intercept(chain: Interceptor.Chain): Response {
+        val request = chain.request()
+        val builder = request.newBuilder()
+        builder.addHeader("Content-type", "application/json; charset=utf-8")
+
+        val cookieSet = localStore.retrieveStringSet(HttpConstants.COOKIE_KEY)
+
+        for (cookie in cookieSet) {
+            builder.addHeader("Cookie", cookie)
+        }
+
+        return chain.proceed(builder.build())
+    }
 
 }
 

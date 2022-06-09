@@ -5,6 +5,7 @@ import com.cesc.core.model.HomeArticleInfo
 import com.cesc.core.model.HomeBanner
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
+import org.koin.core.annotation.Named
 import org.koin.core.annotation.Singleton
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -29,11 +30,16 @@ data class NetworkResponse<T>(
 
 
 @Singleton
-class RetrofitNetwork : WanAndroidNetwork {
+class RetrofitNetwork(
+    @Named("cookieSaver") private val cookieInterceptor: RetrofitInterceptor,
+    @Named("headers") private val headersInterceptor: RetrofitInterceptor
+) : WanAndroidNetwork {
     private val apiService = Retrofit.Builder()
         .client(
             OkHttpClient
                 .Builder()
+                .addInterceptor(cookieInterceptor)
+                .addInterceptor(headersInterceptor)
                 .build()
         )
         .baseUrl("https://www.wanandroid.com/")

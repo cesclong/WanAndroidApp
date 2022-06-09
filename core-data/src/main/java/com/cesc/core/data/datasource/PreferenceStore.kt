@@ -13,7 +13,7 @@ interface PreferenceStore {
     fun retrieveBoolean(key: String): Boolean
 
     fun saveStringSet(key: String, hashSet: MutableSet<String>)
-    fun retrieveStringString(key: String): MutableSet<String>
+    fun retrieveStringSet(key: String): MutableSet<String>
 }
 
 @Singleton
@@ -38,7 +38,7 @@ class MMKVPreferenceStoreImpl : PreferenceStore {
         mmkv.encode(key, hashSet)
     }
 
-    override fun retrieveStringString(key: String): MutableSet<String> {
+    override fun retrieveStringSet(key: String): MutableSet<String> {
         return mmkv.decodeStringSet(key) ?: mutableSetOf()
     }
 

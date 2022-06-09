@@ -56,6 +56,7 @@ dependencies {
     testImplementation(libs.ktx.coroutine.test)
     testImplementation(libs.koin.test)
     testImplementation(libs.koin.test.junit)
+    testImplementation(libs.mockito)
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 }
