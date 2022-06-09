@@ -8,7 +8,7 @@ import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
 import org.koin.ksp.generated.module
 
-object DIManager {
+internal object DIManager {
     fun doInject(applicationContext: Context) {
         startKoin {
             androidContext(applicationContext)

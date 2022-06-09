@@ -34,9 +34,11 @@ dependencies {
     implementation(libs.ktx.core)
     implementation(libs.appcompat)
     implementation(libs.koin.android)
+    implementation(libs.mmkv)
 
     implementation(project(":core-data"))
     implementation(project(":core-domain"))
+    implementation(project(":core-model"))
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

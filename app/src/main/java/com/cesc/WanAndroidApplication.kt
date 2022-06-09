@@ -1,13 +1,11 @@
 package com.cesc
 
 import androidx.multidex.MultiDexApplication
-import com.cesc.core.DIManager
-import com.tencent.mmkv.MMKV
+import com.cesc.core.Startup
 
 class WanAndroidApplication : MultiDexApplication() {
     override fun onCreate() {
         super.onCreate()
-        DIManager.doInject(this)
-        MMKV.initialize(this)
+        Startup.init(this)
     }
 }
